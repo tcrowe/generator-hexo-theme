@@ -1,0 +1,29 @@
+
+# top-most EditorConfig file
+root = true
+
+# Defaults
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# JavaScript
+[*.js]
+indent_style = tab
+indent_size = 4
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+
+# npm
+[package.json]
+indent_style = space
+indent_size = 2
+
+# ejs
+[*.ejs]
+indent_style = tab
+indent_size = 4

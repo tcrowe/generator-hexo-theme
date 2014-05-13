@@ -1,0 +1,36 @@
+{
+  "name": "generator-hexo-theme",
+  "version": "0.0.0",
+  "description": "Create hexo themes like crazy.",
+  "main": "app/index.js",
+  "repository": "tcrowe/generator-hexo-theme",
+  "author": {
+    "name": "Tony Crowe",
+    "email": "github@tonycrowe.com",
+    "url": "https://github.com/tcrowe"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "hexo"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0",
+    "yosay": "^0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
