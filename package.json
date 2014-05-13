@@ -1,6 +1,6 @@
 {
   "name": "generator-hexo-theme",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Create hexo themes like crazy.",
   "main": "app/index.js",
   "repository": "tcrowe/generator-hexo-theme",
@@ -20,7 +20,8 @@
   ],
   "keywords": [
     "yeoman-generator",
-    "hexo"
+    "hexo",
+    "theme"
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
