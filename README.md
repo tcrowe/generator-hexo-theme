@@ -34,7 +34,7 @@ Then goto your hexo site project's `_config.yml` and switch the `theme` propery 
 ---
 * hexo static site generator [hexo.io](http://hexo.io)
 * Yeoman scaffolding tool [yeoman.io](http://yeoman.io)
-* Bower package manager [yeoman.io](http://bower.io)
+* Bower package manager [bower.io](http://bower.io)
 * EditorConfig [editorconfig.org](http://editorconfig.org)
 
 ### Acknowledgement
