@@ -8,11 +8,12 @@ It's used to quickly scaffold a theme for hexo. The theme it creates is fully fu
 It creates all of the necessary files you need to make your own theme.
 
 You will be prompted for:
-* the theme name
-* hexo plugins directory (yes/no)
-* Bower packages (yes/no)
-* EditorConfig file (yes/no)
-* JSHint file (yes/no)
++ the theme name
++ template language (ejs, jade)
++ hexo plugins directory (yes/no)
++ Bower packages (yes/no)
++ EditorConfig file (yes/no)
++ JSHint file (yes/no)
 
 ### Install
 ---
@@ -32,10 +33,10 @@ Then goto your hexo site project's `_config.yml` and switch the `theme` propery 
 
 ### Resources
 ---
-* hexo static site generator [hexo.io](http://hexo.io)
-* Yeoman scaffolding tool [yeoman.io](http://yeoman.io)
-* Bower package manager [bower.io](http://bower.io)
-* EditorConfig [editorconfig.org](http://editorconfig.org)
++ hexo static site generator [hexo.io](http://hexo.io)
++ Yeoman scaffolding tool [yeoman.io](http://yeoman.io)
++ Bower package manager [bower.io](http://bower.io)
++ EditorConfig [editorconfig.org](http://editorconfig.org)
 
 ### Acknowledgement
 ---
