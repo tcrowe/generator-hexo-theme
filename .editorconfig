@@ -27,3 +27,8 @@ indent_size = 2
 [*.ejs]
 indent_style = tab
 indent_size = 4
+
+# jade
+[*.jade]
+indent_style = space
+indent_size = 2

@@ -17,7 +17,7 @@ var HexoThemeGenerator = yeoman.generators.Base.extend({
 			prompts;
 
 		// Have Yeoman greet the user.
-		this.log(yosay('Welcome to the marvelous HexoTheme generator!'));
+		this.log(yosay('Welcome to the marvelous Hexo theme generator!'));
 
 		// get some answers
 		prompts = [
@@ -25,6 +25,22 @@ var HexoThemeGenerator = yeoman.generators.Base.extend({
 				name: 'themename',
 				message: 'What is your theme name?',
 				default: process.env.PWD.split('/').pop()
+			},
+			{
+				name: 'templatelang',
+				message: 'Which template language should we use?',
+				type: 'list',
+				choices: [
+					{
+						name: 'EJS',
+						value: 'ejs',
+						checked: true
+					},
+					{
+						name: 'Jade',
+						value: 'jade'
+					}
+				]
 			},
 			{
 				name: 'features',
@@ -63,6 +79,7 @@ var HexoThemeGenerator = yeoman.generators.Base.extend({
 			}
 
 			this.themename = answers.themename;
+			this.templatelang = answers.templatelang;
 			this.scripts = hasFeature('scripts');
 		    this.bower = hasFeature('bower');
 		    this.editorconfig = hasFeature('editorconfig');
@@ -73,7 +90,7 @@ var HexoThemeGenerator = yeoman.generators.Base.extend({
 
 	themeFiles: function() {
 		// copy the layout directory
-		this.directory('layout', 'layout');
+		this.directory('layout-' + this.templatelang, 'layout');
 
 		// make the source directory
 		// files in `source` get copied to `public` on generate
@@ -88,6 +105,7 @@ var HexoThemeGenerator = yeoman.generators.Base.extend({
 		// use bower components?
 		if (this.bower) {
 			this.template('_bower.json', 'bower.json');
+			this.template('bowerrc', '.bowerrc');
 		}
 
 		// use editorconfig?

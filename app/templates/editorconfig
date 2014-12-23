@@ -22,3 +22,13 @@ trim_trailing_whitespace = false
 [{package.json,bower.json,.bowerrc}]
 indent_style = space
 indent_size = 2
+
+# ejs
+[*.ejs]
+indent_style = tab
+indent_size = 4
+
+# jade
+[*.jade]
+indent_style = space
+indent_size = 2

@@ -19,6 +19,7 @@ describe('hexo-theme generator', function() {
 	it('creates expected files', function(done) {
 		helpers.mockPrompt(this.app, {
 			themename: 'test-theme',
+			templatelang: 'ejs',
 			features: [
 				'scripts',
 				'bower',
@@ -36,6 +37,7 @@ describe('hexo-theme generator', function() {
 				'.jshintrc',
 				'_config.yml',
 				'bower.json',
+				'.bowerrc',
 				'package.json'
 			]);
 			done();
