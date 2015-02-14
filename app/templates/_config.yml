@@ -1,20 +1,24 @@
-# Header
+
+# html lang
+language: en
+
+# main menu navigation
 menu:
   Home: /
   Archives: /archives
-rss: /atom.xml
 
-# Content
-excerpt_link: Read More
+# can include these pages on the front
+index_pages:
+- index
+- about
+- contact
 
-# Sidebar
-sidebar: right
-widgets:
-- category
-- tag
-- tagcloud
-- archive
-- recent_posts
+# feed
+atom: /atom.xml
 
 # Miscelaneous
 favicon: /favicon.png
+
+# loaded in the head
+stylesheets:
+- /css/style.css

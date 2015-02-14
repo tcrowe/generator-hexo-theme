@@ -1,1 +1,17 @@
-<%- partial('_partial/archive', { pagination: 2, index: true }) %>
+
+<%-partial('partials/recent-posts')%>
+
+<div id="index-pages">
+	<% theme.index_pages.forEach(function(index_page) { %>
+		<% site.pages.each(function(pg) { %>
+			<% if (pg.title.toLowerCase() === index_page) { %>
+				<div class="index-page-item">
+					<h1><%=pg.title%></h1>
+					<%-pg.content%>
+				</div>
+			<% } %>
+		<% }); %>
+	<% }); %>
+</div>
+
+<%-partial('partials/pagination')%>

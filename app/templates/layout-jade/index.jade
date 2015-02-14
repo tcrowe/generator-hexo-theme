@@ -1,0 +1,12 @@
+extends includes/layout
+
+block content
+  include includes/recent-posts
+  #index-pages
+    each index_page in theme.index_pages
+      each pg in site.pages.toArray()
+        if pg.title.toLowerCase() === index_page
+          .index-page-item
+            h1= pg.title
+            div!= pg.content
+  include includes/pagination

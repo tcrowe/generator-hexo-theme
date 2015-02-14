@@ -32,3 +32,8 @@ indent_size = 4
 [*.jade]
 indent_style = space
 indent_size = 2
+
+# stylus
+[*.styl]
+indent_style = tab
+indent_size = 2

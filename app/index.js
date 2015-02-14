@@ -5,11 +5,14 @@ var yeoman = require('yeoman-generator'),
 var HexoThemeGenerator = yeoman.generators.Base.extend({
 	init: function() {
 		this.pkg = require('../package.json');
-		this.on('end', function() {
+
+		// this can be uncommented to make it
+		// install dependencies with npm or bower
+		/*this.on('end', function() {
 			if (!this.options['skip-install']) {
 				this.installDependencies();
 			}
-		});
+		});*/
 	},
 
 	askFor: function() {
