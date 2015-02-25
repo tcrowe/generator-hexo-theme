@@ -1,4 +1,7 @@
 'use strict';
+// Node 0.10.29 forget to fill this variable on Windows 7 at least...
+process.env.PWD = process.cwd();
+
 var yeoman = require('yeoman-generator'),
 	yosay = require('yosay');
 
