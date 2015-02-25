@@ -1,6 +1,6 @@
 {
   "name": "generator-hexo-theme",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Create hexo themes like crazy!",
   "main": "app/index.js",
   "repository": "tcrowe/generator-hexo-theme",
