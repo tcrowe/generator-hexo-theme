@@ -3,7 +3,8 @@
 process.env.PWD = process.cwd();
 
 var yeoman = require('yeoman-generator'),
-	yosay = require('yosay');
+	yosay = require('yosay'),
+	path = require('path');
 
 var HexoThemeGenerator = yeoman.generators.Base.extend({
 	init: function() {
@@ -30,7 +31,7 @@ var HexoThemeGenerator = yeoman.generators.Base.extend({
 			{
 				name: 'themename',
 				message: 'What is your theme name?',
-				default: process.env.PWD.split('/').pop()
+				default: process.env.PWD.split(path.sep).pop()
 			},
 			{
 				name: 'templatelang',
