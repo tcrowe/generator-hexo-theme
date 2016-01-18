@@ -1,7 +1,0 @@
-language: node_js
-node_js:
-  - '0.10'
-before_install:
-  - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'generator-hexo-theme' ]; then cd .. && eval "mv $currentfolder generator-hexo-theme" && cd generator-hexo-theme; fi
-
