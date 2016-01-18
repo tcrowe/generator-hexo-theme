@@ -25,7 +25,9 @@
   },
   "devDependencies": {
     "jslint": "^0.9.6",
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "yeoman-assert": "^2.1.1",
+    "yeoman-test": "^1.0.0"
   },
   "peerDependencies": {
     "yo": ">=1.6.0"
