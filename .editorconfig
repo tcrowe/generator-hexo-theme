@@ -8,32 +8,13 @@ charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
 
-# JavaScript
+# javascript
 [*.js]
-indent_style = tab
 indent_size = 4
 
-# Markdown files
+# markdown
 [*.md]
 trim_trailing_whitespace = false
-
-# npm
-[package.json]
-indent_style = space
-indent_size = 2
-
-# ejs
-[*.ejs]
-indent_style = tab
-indent_size = 4
-
-# jade
-[*.jade]
-indent_style = space
-indent_size = 2
-
-# stylus
-[*.styl]
-indent_style = tab
-indent_size = 2

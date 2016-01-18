@@ -1,6 +1,6 @@
 {
   "name": "generator-hexo-theme",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Create hexo themes like crazy!",
   "main": "app/index.js",
   "repository": "tcrowe/generator-hexo-theme",
@@ -12,9 +12,6 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "scripts": {
-    "test": "mocha"
-  },
   "files": [
     "app"
   ],
@@ -24,13 +21,18 @@
     "theme"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.16.0",
-    "yosay": "^0.1.0"
+    "yeoman-generator": "^0.22.3"
   },
   "devDependencies": {
-    "mocha": "^2.1.0"
+    "jslint": "^0.9.6",
+    "mocha": "^2.3.4"
   },
   "peerDependencies": {
-    "yo": ">=1.0.0"
+    "yo": ">=1.6.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "lint": "jslint **/*.js",
+    "clean": "rm -rf test/temp"
   }
 }
