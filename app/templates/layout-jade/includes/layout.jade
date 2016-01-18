@@ -12,8 +12,10 @@ html(lang=config.language)
   head
     meta(charset='UTF-8')
     title= pageTitle
-    each url in theme.stylesheets
-      link(rel='stylesheet', href=url)
+    if theme.stylesheets !== undefined && theme.stylesheets.length > 0
+      //- stylesheets list from config.yml
+      each url in theme.stylesheets
+        link(rel='stylesheet', href=url)
     link(rel="icon", href=config.root + 'img/favicon.png')
   body
     #menu-outer
@@ -36,3 +38,7 @@ html(lang=config.language)
         span .
         br
         a(href=config.root) Home
+    if theme.scripts !== undefined && theme.scripts.length > 0
+      //- scripts list from config.yml
+      each url in theme.scripts
+        script(src=url)
