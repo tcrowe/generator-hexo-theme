@@ -5,20 +5,17 @@ language: en
 # main menu navigation
 menu:
   Home: /
+  About: /about
+  Contact: /contact
   Archives: /archives
 
-# can include these pages on the front
-index_pages:
-- index
-- about
-- contact
-
-# feed
-atom: /atom.xml
-
 # Miscelaneous
-favicon: /favicon.png
+favicon: /favicon.ico
 
-# loaded in the head
+# stylesheets loaded in the <head>
 stylesheets:
-- /css/style.css
+- /css/<%=themeName%>.css
+
+# scripts loaded in the end of the body
+scripts:
+- /js/<%=themeName%>.js
