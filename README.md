@@ -17,6 +17,7 @@ You will be prompted for:
   * EJS
   * Jade
   * Swig
+  * Nunjucks (Thanks to [jonashao][https://github.com/jonashao])
 + Use hexo plugins directory? (yes/no)
 + Bower? (yes/no)
 

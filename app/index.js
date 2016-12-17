@@ -31,6 +31,9 @@ function prompts() {
         }, {
             name: 'Swig',
             value: 'swig'
+        }, {
+            name: 'Nunjucks',
+            value: 'nunjucks'
         }]
     };
 
