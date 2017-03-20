@@ -29,6 +29,9 @@ function prompts() {
             name: 'Jade',
             value: 'jade'
         }, {
+            name: 'Pug',
+            value: 'pug'
+        } ,{
             name: 'Swig',
             value: 'swig'
         }, {

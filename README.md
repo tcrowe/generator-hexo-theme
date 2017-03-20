@@ -59,6 +59,7 @@ It might be necessary to goto the blog root and install a specific renderer for 
 npm install hexo-renderer-jade
 npm install hexo-renderer-ejs
 npm install hexo-renderer-njks
+npm install hexo-render-pug
 ```
 
 ### Resources -- What is all this for?
