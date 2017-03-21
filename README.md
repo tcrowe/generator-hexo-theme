@@ -15,7 +15,8 @@ You will be prompted for:
   * css
 + Template language?
   * EJS
-  * Jade
+  * Jade (deprecated, use Pug)
+  * Pug :arrow_right: Ported by [moosoul](https://github.com/moosoul)
   * Swig
   * Nunjucks :arrow_right: Thanks to [jonashao](https://github.com/jonashao)
 + Use hexo plugins directory? (yes/no)

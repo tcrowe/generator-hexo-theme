@@ -26,12 +26,12 @@ function prompts() {
             value: 'ejs',
             checked: true
         }, {
-            name: 'Jade',
+            name: 'Jade (deprecated, use Pug)',
             value: 'jade'
         }, {
             name: 'Pug',
             value: 'pug'
-        } ,{
+        }, {
             name: 'Swig',
             value: 'swig'
         }, {
