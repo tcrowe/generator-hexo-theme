@@ -7,11 +7,11 @@
       <div class="category-item">
         {% if postItem.link %}
           <a href="{{ url_for(postItem.link) }}" target="_blank">
-            {{ postItem.title || 'No Title' }}
+            {{ postItem.title or 'No Title' }}
           </a>
         {% else %}
           <a href="{{ url_for(postItem.path) }}">
-            {{ postItem.title || 'No Title' }}
+            {{ postItem.title or 'No Title' }}
           </a>
         {% endif %}
 

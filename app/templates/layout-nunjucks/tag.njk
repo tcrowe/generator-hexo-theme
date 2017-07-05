@@ -7,11 +7,11 @@
       <div class="tag-item">
         {% if article.link %}
           <a href="{{ url_for(article.link) }}" target="_blank">
-            {{ article.title || 'No Title' }}
+            {{ article.title or 'No Title' }}
           </a>
         {% else %}
           <a href="{{ url_for(article.link) }}">
-            {{ article.title || 'No Title' }}
+            {{ article.title or 'No Title' }}
           </a>
         {% endif %}
 
