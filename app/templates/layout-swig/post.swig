@@ -6,5 +6,5 @@
     {% autoescape false %}{{ page.content }}{% endautoescape %}
   </article>
 
-  {% include 'includes/pagination.swig' %}
+  {% paginator() %}
 {% endblock %}

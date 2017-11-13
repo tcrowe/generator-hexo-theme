@@ -1,4 +1,6 @@
 
+Moving future development to [slush-hexo-theme](https://github.com/tcrowe/slush-hexo-theme).
+
 # hexo theme generator for yeoman
 It's used to quickly scaffold a theme for hexo. The theme it creates is fully functional and has no design. That part is up to you!
 
@@ -8,17 +10,16 @@ It creates all of the necessary files you need to make your own theme within an 
 You will be prompted for:
 + Theme name?
 + Stylesheet language?
-  * Stylus
+  * styl
   * scss
   * sass
   * less
   * css
 + Template language?
-  * EJS
-  * Jade (deprecated, use Pug)
-  * Pug :arrow_right: Ported by [moosoul](https://github.com/moosoul)
-  * Swig
-  * Nunjucks :arrow_right: Thanks to [jonashao](https://github.com/jonashao)
+  * ejs
+  * pug
+  * swig
+  * Nunjucks
 + Use hexo plugins directory? (yes/no)
 + Bower? (yes/no)
 
@@ -56,12 +57,22 @@ Please post any ideas to issues. If you know how to use any of the technologies 
 
 ### Hexo renderers
 It might be necessary to goto the blog root and install a specific renderer for the template language you have chosen. Swig is built into Hexo at the current version.
-```
-npm install hexo-renderer-jade
+```sh
+# templates
 npm install hexo-renderer-ejs
 npm install hexo-renderer-njks
 npm install hexo-render-pug
+
+# styles
+npm install hexo-renderer-stylus
+npm install hexo-renderer-less
+npm install hexo-renderer-sass
 ```
+
+### Thank you
+
++ [moosoul](https://github.com/moosoul)
++ [jonashao](https://github.com/jonashao)
 
 ### Resources -- What is all this for?
 + hexo static site generator [hexo.io](http://hexo.io)

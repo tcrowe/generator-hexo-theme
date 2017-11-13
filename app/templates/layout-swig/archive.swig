@@ -76,7 +76,7 @@
         </time>
       </div>
     {% endfor %}
+    {% paginator() %}
   {% endif %}
 
-  {% include 'includes/pagination.swig' %}
 {% endblock %}

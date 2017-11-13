@@ -54,5 +54,5 @@ block content
           time(datetime=date_xml(article.date))= date(article.date)
       - })
 
-    include includes/pagination.pug
+      div!= paginator()
 

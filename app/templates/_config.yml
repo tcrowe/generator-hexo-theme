@@ -14,8 +14,8 @@ favicon: /favicon.ico
 
 # stylesheets loaded in the <head>
 stylesheets:
-- /css/<%=themeName%>.css
+- /css/<%=name%>.css
 
 # scripts loaded in the end of the body
 scripts:
-- /js/<%=themeName%>.js
+- /js/<%=name%>.js

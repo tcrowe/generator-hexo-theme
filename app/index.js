@@ -1,177 +1,164 @@
-'use strict';
+'use strict'
 
-var path = require('path'),
-    generator = require('yeoman-generator');
+var path = require('path')
+var generator = require('yeoman-generator')
 
 function prompts() {
-    var done = this.async(),
-        themeName,
-        templateLang,
-        stylesheetLang,
-        technicalFeatures,
-        promptList;
+  var done = this.async()
+  var opts = this.options
+  var namePrompt
+  var tmplPrompt
+  var stylePrompt
+  var otherPrompt
+  var promptList
 
-    themeName = {
-        name: 'themeName',
-        message: 'What is the theme name?',
-        default: process.cwd().split(path.sep).pop()
-    };
+  function promptsComplete(answers) {
+    var features = answers.other
 
-    templateLang = {
-        name: 'templateLang',
-        message: 'Which template language to use?',
-        type: 'list',
-        choices: [{
-            name: 'EJS',
-            value: 'ejs',
-            checked: true
-        }, {
-            name: 'Jade (deprecated, use Pug)',
-            value: 'jade'
-        }, {
-            name: 'Pug',
-            value: 'pug'
-        }, {
-            name: 'Swig',
-            value: 'swig'
-        }, {
-            name: 'Nunjucks',
-            value: 'nunjucks'
-        }]
-    };
-
-    stylesheetLang = {
-        name: 'stylesheetLang',
-        message: 'Which stylesheet language to use?',
-        type: 'list',
-        choices: [{
-            name: 'Stylus',
-            value: 'styl',
-            checked: true
-        }, {
-            name: 'Sass: *.scss format',
-            value: 'scss'
-        }, {
-            name: 'Sass: *.sass format',
-            value: 'sass'
-        }, {
-            name: 'Less',
-            value: 'less'
-        }, {
-            name: 'CSS',
-            value: 'css'
-        }]
-    };
-
-    technicalFeatures = {
-        name: 'technicalFeatures',
-        type: 'checkbox',
-        message: 'Other technical features',
-        choices: [{
-            name: 'Hexo scripts directory (hexo plugins)',
-            value: 'scripts',
-            checked: false
-        }, {
-            name: 'Bower: bower.json, .bowerrc',
-            value: 'bower',
-            checked: false
-        }]
-    };
-
-    promptList = [
-        themeName,
-        templateLang,
-        stylesheetLang,
-        technicalFeatures
-    ];
-
-    function promptsComplete(answers) {
-        var features = answers.technicalFeatures;
-
-        function hasFeature(feat) {
-            return features.indexOf(feat) !== -1;
-        }
-
-        this.themeName = answers.themeName;
-        this.templateLang = answers.templateLang;
-        this.stylesheetLang = answers.stylesheetLang;
-
-        this.scripts = hasFeature('scripts');
-        this.bower = hasFeature('bower');
-
-        // async yeoman function complete
-        done();
+    function hasFeature(feat) {
+      return features.indexOf(feat) !== -1
     }
 
-    this.log('--=[ generator-hexo-theme ]=--');
+    this.name = answers.name
+    this.tmpl = answers.tmpl
+    this.style = answers.style
 
-    // run the prompts and goto the next step
-    this.prompt(promptList, promptsComplete.bind(this));
+    this.scripts = hasFeature('scripts')
+    this.bower = hasFeature('bower')
+
+    // async yeoman function complete
+    done()
+  }
+
+  namePrompt = {
+    name: 'name',
+    message: 'What is the theme name?',
+    'default': (opts.name || this.appname || process.cwd().split(path.sep).pop())
+  }
+
+  tmplPrompt = {
+    name: 'tmpl',
+    message: 'Which template language to use?',
+    type: 'list',
+    'default': (opts.tmpl || 'ejs'),
+    choices: [
+      'ejs',
+      'pug',
+      'swig',
+      'nunjucks'
+    ]
+  }
+
+  stylePrompt = {
+    name: 'style',
+    message: 'Which stylesheet language to use?',
+    type: 'list',
+    'default': (opts.style || 'styl'),
+    choices: [
+      'styl',
+      'scss',
+      'sass',
+      'less',
+      'css'
+    ]
+  }
+
+  otherPrompt = {
+    name: 'other',
+    type: 'checkbox',
+    message: 'Other technical features',
+    choices: [{
+      name: 'Hexo scripts directory (hexo plugins)',
+      value: 'scripts',
+      checked: false
+    }, {
+      name: 'Bower: bower.json, .bowerrc',
+      value: 'bower',
+      checked: false
+    }]
+  }
+
+  promptList = [
+    namePrompt,
+    tmplPrompt,
+    stylePrompt,
+    otherPrompt
+  ]
+
+  this.log('--=[ generator-hexo-theme ]=--')
+
+  // run the prompts and goto the next step
+  return this.prompt(promptList, promptsComplete.bind(this))
 }
 
 function createFiles() {
-    var themeName = this.themeName,
-        templateLang = this.templateLang,
-        stylesheetLang = this.stylesheetLang,
-        scripts = this.scripts,
-        bower = this.bower,
-        stylesheetPath,
-        scriptPath;
+  var name = this.name
+  var tmpl = this.tmpl
+  var style = this.style
+  var scripts = this.scripts
+  var bower = this.bower
+  var styleSrc
+  var styleDest
 
-    // copy the layout directory
-    this.fs.copy(
-        this.templatePath('layout-' + templateLang),
-        this.destinationPath('layout')
-    );
+  // copy the layout directory
+  this.fs.copy(
+    this.templatePath('layout-' + tmpl),
+    this.destinationPath('layout')
+  )
 
-    // make the source directory
-    // files in `source` get copied to `public` when hexo generates
-    this.fs.copy(
-        this.templatePath('favicon.ico'),
-        this.destinationPath('source/favicon.ico')
-    );
-    stylesheetPath = 'source/css/' + themeName + '.' + stylesheetLang;
-    this.fs.write(this.destinationPath(stylesheetPath), '');
-    scriptPath = 'source/js/' + themeName + '.js';
-    this.fs.write(this.destinationPath(scriptPath), '');
+  // make the source directory
+  // files in `source` get copied to `public` when hexo generates
+  this.fs.copy(
+    this.templatePath('favicon.ico'),
+    this.destinationPath('source/favicon.ico')
+  )
 
-    // use hexo plugins?
-    if (scripts === true) {
-        this.fs.write(
-            this.destinationPath('scripts/hexo-plugins.txt'),
-            'https://hexo.io/plugins'
-        );
-        this.fs.copyTpl(
-            this.templatePath('_package.json'),
-            this.destinationPath('package.json'),
-            { themeName: themeName }
-        );
-    }
+  styleSrc = 'stylesheets/' + style + '.' + style
+  styleDest = 'source/css/' + name + '.' + style
+  this.fs.copy(this.templatePath(styleSrc), this.destinationPath(styleDest))
 
-    // bower files
-    if (bower === true) {
-        this.fs.copyTpl(
-            this.templatePath('_bower.json'),
-            this.destinationPath('bower.json'),
-            { themeName: themeName }
-        );
-        this.fs.copy(
-            this.templatePath('bowerrc'),
-            this.destinationPath('.bowerrc')
-        );
-    }
+  this.fs.write(this.destinationPath('source/js/' + name + '.js'), '')
 
-    // theme config file
+  // use hexo plugins?
+  if (scripts === true) {
+    this.fs.write(
+      this.destinationPath('scripts/hexo-plugins.txt'),
+      'https://hexo.io/plugins'
+    )
     this.fs.copyTpl(
-        this.templatePath('_config.yml'),
-        this.destinationPath('_config.yml'),
-        { themeName: themeName }
-    );
+      this.templatePath('_package.json'),
+      this.destinationPath('package.json'), {
+        name: name
+      }
+    )
+  }
+
+  // bower files
+  if (bower === true) {
+    this.fs.copyTpl(
+      this.templatePath('_bower.json'),
+      this.destinationPath('bower.json'), {
+        name: name
+      }
+    )
+    this.fs.copy(
+      this.templatePath('bowerrc'),
+      this.destinationPath('.bowerrc')
+    )
+  }
+
+  // theme config file
+  this.fs.copyTpl(
+    this.templatePath('_config.yml'),
+    this.destinationPath('_config.yml'), {
+      name: name
+    }
+  )
 }
 
 module.exports = generator.Base.extend({
-    // step 1
-    prompts: prompts,
-    // step 2
-    createFiles: createFiles
-});
+  // step 1
+  prompts: prompts,
+  // step 2
+  createFiles: createFiles
+})

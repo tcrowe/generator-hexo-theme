@@ -2,5 +2,5 @@
 
 {% block body %}
   {% include 'includes/recent-posts.swig' %}
-  {% include 'includes/pagination.swig' %}
+  {% paginator() %}
 {% endblock %}

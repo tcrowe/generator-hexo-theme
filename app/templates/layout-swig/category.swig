@@ -22,5 +22,5 @@
     {% endfor %}
   </div>
 
-  {% include 'includes/pagination.swig' %}
+  {% paginator() %}
 {% endblock %}

@@ -3,12 +3,18 @@
   "version": "0.4.1",
   "description": "Create hexo themes like crazy!",
   "main": "app/index.js",
-  "repository": "tcrowe/generator-hexo-theme",
+  "repository": "https://github.com/tcrowe/generator-hexo-theme.git",
+  "issues": "https://github.com/tcrowe/generator-hexo-theme/issues",
   "author": {
     "name": "Tony Crowe",
     "email": "github@tonycrowe.com",
     "url": "https://github.com/tcrowe"
   },
+  "contributors": [{
+    "url": "https://github.com/moosoul"
+  }, {
+    "url": "https://github.com/jonashao"
+  }],
   "engines": {
     "node": ">=0.10.0"
   },
@@ -18,14 +24,18 @@
   "keywords": [
     "yeoman-generator",
     "hexo",
-    "theme"
+    "theme",
+    "pug",
+    "ejs",
+    "nunjucks",
+    "swig"
   ],
   "dependencies": {
+    "livescript": "^1.5.0",
     "yeoman-generator": "^0.22.3"
   },
   "devDependencies": {
-    "jslint": "^0.9.6",
-    "mocha": "^2.3.4",
+    "mocha": "^4.0.1",
     "yeoman-assert": "^2.1.1",
     "yeoman-test": "^1.0.0"
   },
@@ -33,8 +43,8 @@
     "yo": ">=1.6.0"
   },
   "scripts": {
-    "test": "npm run lint && npm run mocha-test",
-    "lint": "jslint **/*.js",
-    "mocha-test": "mocha"
+    "dev": "NODE_ENV=development lsc -c -w -b -m linked -o app src/index.ls",
+    "dev-test": "NODE_ENV=test mocha --watch || true",
+    "test": "NODE_ENV=test mocha"
   }
 }
