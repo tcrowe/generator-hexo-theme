@@ -52,9 +52,6 @@ yo hexo-theme
 
 To start the server go back to the root of your hexo project and run `hexo server --debug`.
 
-### Ideas
-Please post any ideas to issues. If you know how to use any of the technologies it generates better than me there are places, especially in the templates, where it could be improved by you! Pull requests welcome.
-
 ### Hexo renderers
 It might be necessary to goto the blog root and install a specific renderer for the template language you have chosen. Swig is built into Hexo at the current version.
 ```sh
