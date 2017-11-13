@@ -1,6 +1,6 @@
 {
   "name": "generator-hexo-theme",
-  "version": "0.5.0",
+  "version": "0.4.1",
   "description": "Create hexo themes like crazy!",
   "main": "app/index.js",
   "repository": "https://github.com/tcrowe/generator-hexo-theme.git",
@@ -10,14 +10,11 @@
     "email": "github@tonycrowe.com",
     "url": "https://github.com/tcrowe"
   },
-  "contributors": [
-    {
-      "url": "https://github.com/moosoul"
-    },
-    {
-      "url": "https://github.com/jonashao"
-    }
-  ],
+  "contributors": [{
+    "url": "https://github.com/moosoul"
+  }, {
+    "url": "https://github.com/jonashao"
+  }],
   "engines": {
     "node": ">=0.10.0"
   },
