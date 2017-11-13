@@ -2,4 +2,3 @@ node_modules
 temp
 .DS_Store
 test/temp
-package-lock.json
