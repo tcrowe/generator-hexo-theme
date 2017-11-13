@@ -1,8 +1,8 @@
 
-{% if site.posts.length > 0 %}
+{% if page.posts.length > 0 %}
   <div id="recent-posts">
     <h1>All Posts</h1>
-    {% for postItem in site.posts.toArray() %}
+    {% for postItem in page.posts.toArray() %}
       <div class="recent-post-item">
         <a href="{{ config.root }}{{ postItem.path }}">{{ postItem.title }}</a>
         {% if postItem.date %}
