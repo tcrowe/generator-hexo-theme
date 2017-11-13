@@ -1,58 +1,67 @@
 
-Moving future development to [slush-hexo-theme](https://github.com/tcrowe/slush-hexo-theme).
+⭐ Moving future development to [slush-hexo-theme](https://github.com/tcrowe/slush-hexo-theme). We can still fix bugs on this though. ⭐
 
-# hexo theme generator for yeoman
-It's used to quickly scaffold a theme for hexo. The theme it creates is fully functional and has no design. That part is up to you!
+# generator-hexo-theme
 
-### Features
-It creates all of the necessary files you need to make your own theme within an existing hexo.js project.
+Generate a hexo theme
 
-You will be prompted for:
-+ Theme name?
-+ Stylesheet language?
-  * styl
-  * scss
-  * sass
-  * less
-  * css
-+ Template language?
-  * ejs
-  * pug
-  * swig
-  * Nunjucks
-+ Use hexo plugins directory? (yes/no)
-+ Bower? (yes/no)
+Template choices:
++ ejs
++ nunjucks
++ pug
++ swig
 
-### Install
+Style choices:
++ stylus
++ sass
++ scss
++ less
++ css
+
+Other:
++ hexo scripts
++ bower: .bowerrc, bower.json
+
+## Install
+
 ```sh
-npm install -g generator-hexo-theme
+npm install --global yo
+npm install --global generator-hexo-theme
 ```
 
-### Use
+## Use
 
-Create a new hexo app using [hexo-cli](https://github.com/hexojs/hexo-cli).
+If you don't have a site yet create one with `hexo init` [hexo-cli](https://github.com/hexojs/hexo-cli).
 
 ```sh
-mkdir projectName && cd projectName
+mkdir my-site
+cd my-site
 hexo init
 ```
 
 Navigate to the directory you want to place the theme project in (most likely `themes/`).
 
 ```sh
-mkdir mytheme && cd mytheme
+# from the site root
+cd themes
+
+# make a new theme directory
+mkdir my-theme
+cd my-theme
+
+# generate
 yo hexo-theme
 ```
 
-+ Check main blog `_config.yml`
-  * Set theme property to your theme name, activating this theme
-+ Check theme-specific `_config.yml`
+1. Check `_config.yml` in your **main blog directory**
+  * Set `theme` property to your theme name, activating this theme
+2. Check `_config.yml` in your **theme directory**
   * Change menu items if needed
-  * Change stylesheet and js list if needed
+  * Change stylesheet and scripts list if needed
+3. Navigate back to your **main blog directory**
+4. `hexo server --debug`
 
-To start the server go back to the root of your hexo project and run `hexo server --debug`.
-
-### Hexo renderers
+## Hexo renderers
 It might be necessary to goto the blog root and install a specific renderer for the template language you have chosen. Swig is built into Hexo at the current version.
 ```sh
 # templates
@@ -66,12 +75,12 @@ npm install hexo-renderer-less
 npm install hexo-renderer-sass
 ```
 
-### Thank you
+## Thank you
 
 + [moosoul](https://github.com/moosoul)
 + [jonashao](https://github.com/jonashao)
 
-### Resources -- What is all this for?
+## Resources -- What is all this for?
 + hexo static site generator [hexo.io](https://hexo.io)
 + Yeoman scaffolding tool [yeoman.io](https://yeoman.io)
 + Bower package manager [bower.io](https://bower.io)
