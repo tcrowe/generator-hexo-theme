@@ -75,7 +75,7 @@ npm install hexo-renderer-sass
 + [jonashao](https://github.com/jonashao)
 
 ### Resources -- What is all this for?
-+ hexo static site generator [hexo.io](http://hexo.io)
-+ Yeoman scaffolding tool [yeoman.io](http://yeoman.io)
-+ Bower package manager [bower.io](http://bower.io)
++ hexo static site generator [hexo.io](https://hexo.io)
++ Yeoman scaffolding tool [yeoman.io](https://yeoman.io)
++ Bower package manager [bower.io](https://bower.io)
 + EditorConfig [editorconfig.org](http://editorconfig.org)
