@@ -1,11 +1,10 @@
 {% extends 'includes/layout.njk' %}
 
 {% block body %}
-    <article id="post">
-        <h1>{{ page.title }}</h1>
-        {#to decide if escapes #}
-        {{ page.content }}
-    </article>
+  <article id="post">
+    <h1>{{ page.title }}</h1>
+    {{ page.content }}
+  </article>
 
-    {% paginator() %}
+  {{ paginator() }}
 {% endblock %}
