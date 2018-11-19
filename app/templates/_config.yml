@@ -9,9 +9,6 @@ menu:
   Contact: /contact
   Archives: /archives
 
-# Miscelaneous
-favicon: /favicon.ico
-
 # stylesheets loaded in the <head>
 stylesheets:
 - /css/<%=name%>.css

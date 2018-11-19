@@ -1,0 +1,7 @@
+--colors
+--reporter spec
+--ui bdd
+--bail
+--full-trace
+--exit
+--require should

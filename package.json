@@ -1,7 +1,7 @@
 {
   "name": "generator-hexo-theme",
   "version": "0.5.1",
-  "description": "Create hexo themes like crazy!",
+  "description": "Create hexo themes like crazy! ejs, nunjucks, pug, swig",
   "main": "app/index.js",
   "repository": "https://github.com/tcrowe/generator-hexo-theme.git",
   "issues": "https://github.com/tcrowe/generator-hexo-theme/issues",
@@ -19,7 +19,7 @@
     }
   ],
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=6.0.0"
   },
   "files": [
     "app"
@@ -34,16 +34,21 @@
     "swig"
   ],
   "dependencies": {
-    "livescript": "^1.5.0",
-    "yeoman-generator": "^0.22.3"
+    "livescript": "^1.6.0",
+    "yeoman-generator": "^3.1.1"
   },
   "devDependencies": {
-    "mocha": "^4.0.1",
-    "yeoman-assert": "^2.1.1",
-    "yeoman-test": "^1.0.0"
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.15.2",
+    "should": "^13.2.3",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^1.9.1"
   },
   "peerDependencies": {
-    "yo": ">=1.6.0"
+    "yo": ">=2.0.0"
   },
   "scripts": {
     "dev": "NODE_ENV=development lsc -c -w -b -m linked -o app src/index.ls",

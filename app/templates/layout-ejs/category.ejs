@@ -1,17 +1,11 @@
 
 <div id="category">
   <h1><%=page.category%></h1>
-  <% page.posts.each(function(article) { %>
+  <% page.posts.each(article => { %>
     <div class="category-item">
-      <% if (article.link) { %>
-        <a href="<%=url_for(article.link)%>" target="_blank">
-          <%=article.title || 'No Title'%>
-        </a>
-      <% } else { %>
-        <a href="<%=url_for(article.path)%>">
-          <%=article.title || 'No Title'%>
-        </a>
-      <% } %>
+      <a href="<%=url_for(article.path)%>">
+        <%=article.title%>
+      </a>
       <time datetime="<%=date_xml(article.date)%>">
         <%=date(article.date)%>
       </time>
@@ -19,4 +13,6 @@
   <% }); %>
 </div>
 
-<%-paginator()%>
+<div id="paginator">
+  <%-paginator()%>
+</div>

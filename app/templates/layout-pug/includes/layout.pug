@@ -13,10 +13,9 @@ html(lang=config.language)
     meta(charset='UTF-8')
     title= pageTitle
     if theme.stylesheets !== undefined && theme.stylesheets.length > 0
-      //- stylesheets list from config.yml
+      //- stylesheets list from _config.yml
       each url in theme.stylesheets
         link(rel='stylesheet', href=url)
-    link(rel="icon", href=config.root + 'img/favicon.png')
   body
     #menu-outer
       nav#menu-inner

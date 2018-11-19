@@ -1,9 +1,0 @@
-{
-  "node": true,
-  "nomen": true,
-  "predef": [
-    "describe",
-    "it",
-    "beforeEach"
-  ]
-}

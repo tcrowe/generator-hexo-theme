@@ -1,6 +1,4 @@
 
-⭐ Moving future development to [slush-hexo-theme](https://github.com/tcrowe/slush-hexo-theme). We can still fix bugs on this though. ⭐
-
 # generator-hexo-theme
 
 Generate a hexo theme
@@ -19,8 +17,9 @@ Style choices:
 + css
 
 Other:
-+ hexo scripts
-+ bower: .bowerrc, bower.json
++ hexo scripts directory
++ .editorconfig file
++ package.json
 
 ## Install
 
@@ -62,6 +61,7 @@ yo hexo-theme
 4. `hexo server --debug`
 
 ## Hexo renderers
+
 It might be necessary to goto the blog root and install a specific renderer for the template language you have chosen. Swig is built into Hexo at the current version.
 ```sh
 # templates
@@ -81,7 +81,7 @@ npm install hexo-renderer-sass
 + [jonashao](https://github.com/jonashao)
 
 ## Resources -- What is all this for?
+
 + hexo static site generator [hexo.io](https://hexo.io)
 + Yeoman scaffolding tool [yeoman.io](https://yeoman.io)
-+ Bower package manager [bower.io](https://bower.io)
 + EditorConfig [editorconfig.org](http://editorconfig.org)

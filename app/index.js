@@ -1,164 +1,124 @@
-'use strict'
+const path = require("path");
+const Generator = require("yeoman-generator");
 
-var path = require('path')
-var generator = require('yeoman-generator')
+module.exports = class extends Generator {
+  async prompting() {
+    const { options } = this;
 
-function prompts() {
-  var done = this.async()
-  var opts = this.options
-  var namePrompt
-  var tmplPrompt
-  var stylePrompt
-  var otherPrompt
-  var promptList
+    this.log("--=[ generator-hexo-theme ]=--");
 
-  function promptsComplete(answers) {
-    var features = answers.other
+    const namePrompt = {
+      name: "name",
+      message: "What is the theme name?",
+      default:
+        options.name ||
+        this.appname ||
+        process
+          .cwd()
+          .split(path.sep)
+          .pop()
+    };
 
-    function hasFeature(feat) {
-      return features.indexOf(feat) !== -1
-    }
+    const tmplPrompt = {
+      name: "tmpl",
+      message: "Which template language to use?",
+      type: "list",
+      default: options.tmpl || "ejs",
+      choices: ["ejs", "pug", "swig", "nunjucks"]
+    };
 
-    this.name = answers.name
-    this.tmpl = answers.tmpl
-    this.style = answers.style
+    const stylePrompt = {
+      name: "style",
+      message: "Which stylesheet language to use?",
+      type: "list",
+      default: options.style || "styl",
+      choices: ["styl", "scss", "sass", "less", "css"]
+    };
 
-    this.scripts = hasFeature('scripts')
-    this.bower = hasFeature('bower')
+    const otherPrompt = {
+      name: "other",
+      type: "checkbox",
+      message: "Other technical features",
+      choices: [
+        {
+          name: "Hexo scripts directory (hexo plugins)",
+          value: "scripts",
+          checked: false
+        },
+        {
+          name: "EditorConfig file .editorconfig",
+          value: "editorconfig",
+          checked: false
+        },
+        {
+          name: "node npm package.json",
+          value: "packagejson",
+          checked: false
+        }
+      ]
+    };
 
-    // async yeoman function complete
-    done()
+    const promptList = [namePrompt, tmplPrompt, stylePrompt, otherPrompt];
+
+    // run the prompts and goto the next step
+    this.answers = await this.prompt(promptList);
   }
 
-  namePrompt = {
-    name: 'name',
-    message: 'What is the theme name?',
-    'default': (opts.name || this.appname || process.cwd().split(path.sep).pop())
-  }
+  writing() {
+    const { name, tmpl, style, other } = this.answers;
 
-  tmplPrompt = {
-    name: 'tmpl',
-    message: 'Which template language to use?',
-    type: 'list',
-    'default': (opts.tmpl || 'ejs'),
-    choices: [
-      'ejs',
-      'pug',
-      'swig',
-      'nunjucks'
-    ]
-  }
-
-  stylePrompt = {
-    name: 'style',
-    message: 'Which stylesheet language to use?',
-    type: 'list',
-    'default': (opts.style || 'styl'),
-    choices: [
-      'styl',
-      'scss',
-      'sass',
-      'less',
-      'css'
-    ]
-  }
-
-  otherPrompt = {
-    name: 'other',
-    type: 'checkbox',
-    message: 'Other technical features',
-    choices: [{
-      name: 'Hexo scripts directory (hexo plugins)',
-      value: 'scripts',
-      checked: false
-    }, {
-      name: 'Bower: bower.json, .bowerrc',
-      value: 'bower',
-      checked: false
-    }]
-  }
-
-  promptList = [
-    namePrompt,
-    tmplPrompt,
-    stylePrompt,
-    otherPrompt
-  ]
-
-  this.log('--=[ generator-hexo-theme ]=--')
-
-  // run the prompts and goto the next step
-  return this.prompt(promptList, promptsComplete.bind(this))
-}
-
-function createFiles() {
-  var name = this.name
-  var tmpl = this.tmpl
-  var style = this.style
-  var scripts = this.scripts
-  var bower = this.bower
-  var styleSrc
-  var styleDest
-
-  // copy the layout directory
-  this.fs.copy(
-    this.templatePath('layout-' + tmpl),
-    this.destinationPath('layout')
-  )
-
-  // make the source directory
-  // files in `source` get copied to `public` when hexo generates
-  this.fs.copy(
-    this.templatePath('favicon.ico'),
-    this.destinationPath('source/favicon.ico')
-  )
-
-  styleSrc = 'stylesheets/' + style + '.' + style
-  styleDest = 'source/css/' + name + '.' + style
-  this.fs.copy(this.templatePath(styleSrc), this.destinationPath(styleDest))
-
-  this.fs.write(this.destinationPath('source/js/' + name + '.js'), '')
-
-  // use hexo plugins?
-  if (scripts === true) {
-    this.fs.write(
-      this.destinationPath('scripts/hexo-plugins.txt'),
-      'https://hexo.io/plugins'
-    )
-    this.fs.copyTpl(
-      this.templatePath('_package.json'),
-      this.destinationPath('package.json'), {
-        name: name
-      }
-    )
-  }
-
-  // bower files
-  if (bower === true) {
-    this.fs.copyTpl(
-      this.templatePath('_bower.json'),
-      this.destinationPath('bower.json'), {
-        name: name
-      }
-    )
+    // copy the layout directory
     this.fs.copy(
-      this.templatePath('bowerrc'),
-      this.destinationPath('.bowerrc')
-    )
-  }
+      this.templatePath(`layout-${tmpl}`),
+      this.destinationPath("layout")
+    );
 
-  // theme config file
-  this.fs.copyTpl(
-    this.templatePath('_config.yml'),
-    this.destinationPath('_config.yml'), {
-      name: name
+    // make the source directory
+    // files in `source` get copied to `public` when hexo generates
+    this.fs.copy(
+      this.templatePath("favicon.ico"),
+      this.destinationPath("source/favicon.ico")
+    );
+
+    const styleSrc = `styles/style.${style}`;
+    const styleDest = `source/css/${name}.${style}`;
+    this.fs.copy(this.templatePath(styleSrc), this.destinationPath(styleDest));
+    this.fs.write(this.destinationPath(`source/js/${name}.js`), "");
+
+    // use hexo plugins?
+    if (other.includes("scripts") === true) {
+      this.fs.copy(
+        this.templatePath("scripts"),
+        this.destinationPath("scripts")
+      );
     }
-  )
-}
 
-module.exports = generator.Base.extend({
-  // step 1
-  prompts: prompts,
-  // step 2
-  createFiles: createFiles
-})
+    // use editorconfig?
+    if (other.includes("editorconfig") === true) {
+      this.fs.copy(
+        this.templatePath(".editorconfig"),
+        this.destinationPath(".editorconfig")
+      );
+    }
+
+    // use package.json?
+    if (other.includes("packagejson") === true) {
+      this.fs.copyTpl(
+        this.templatePath("package.json"),
+        this.destinationPath("package.json"),
+        {
+          name: name
+        }
+      );
+    }
+
+    // theme config file
+    this.fs.copyTpl(
+      this.templatePath("_config.yml"),
+      this.destinationPath("_config.yml"),
+      {
+        name: name
+      }
+    );
+  }
+};

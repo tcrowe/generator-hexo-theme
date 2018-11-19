@@ -57,26 +57,17 @@
     <h1>{{ page.month + '/' + page.year }}</h1>
     {% for postItem in page.posts.toArray() %}
       <div class="archive-item">
-        {% if postItem.link %}
-          <!-- external link -->
-          <a href="{{ url_for(postItem.link) }}" target="_blank">
-            {{ postItem.title || 'No Title' }}
-          </a>
-        {% endif %}
-
-        {% if !postItem.link %}
-          <!-- internal link -->
-          <a href="{{ url_for(postItem.path) }}">
-            {{ postItem.title || 'No Title' }}
-          </a>
-        {% endif %}
-
+        <a href="{{ url_for(postItem.path) }}">
+          {{ postItem.title }}
+        </a>
         <time datetime="{{ date_xml(postItem.date) }}">
           {{ date(postItem.date) }}
         </time>
       </div>
     {% endfor %}
-    {% paginator() %}
+    <div id="paginator">
+      {% paginator() %}
+    </div>
   {% endif %}
 
 {% endblock %}

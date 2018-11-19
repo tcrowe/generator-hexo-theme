@@ -1,0 +1,1 @@
+// <%=name%> client-side javascript

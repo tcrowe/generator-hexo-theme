@@ -6,5 +6,7 @@
     {% autoescape false %}{{page.content }}{% endautoescape %}
   </article>
 
-  {% paginator() %}
+  <div id="paginator">
+    {% paginator() %}
+  </div>
 {% endblock %}

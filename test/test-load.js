@@ -1,10 +1,8 @@
-'use strict'
+const assert = require("assert");
 
-var assert = require('assert')
-
-describe('hexo-theme generator', function() {
-  it('can be imported without blowing up', function() {
-    var app = require('../app')
-    assert(app !== undefined)
-  })
-})
+describe("hexo-theme generator", function() {
+  it("can be imported without blowing up", function() {
+    const app = require("../app");
+    assert(app !== undefined);
+  });
+});

@@ -5,16 +5,9 @@
     <h1>{{ page.category }}</h1>
     {% for postItem in page.posts.toArray() %}
       <div class="category-item">
-        {% if postItem.link %}
-          <a href="{{ url_for(postItem.link) }}" target="_blank">
-            {{ postItem.title || 'No Title' }}
-          </a>
-        {% else %}
-          <a href="{{ url_for(postItem.path) }}">
-            {{ postItem.title || 'No Title' }}
-          </a>
-        {% endif %}
-
+        <a href="{{ url_for(postItem.path) }}">
+          {{ postItem.title }}
+        </a>
         <time datetime="{{ date_xml(postItem.date) }}">
           {{ date(postItem.date) }}
         </time>
@@ -22,5 +15,7 @@
     {% endfor %}
   </div>
 
-  {% paginator() %}
+  <div id="paginator">
+    {% paginator() %}
+  </div>
 {% endblock %}

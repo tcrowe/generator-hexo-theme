@@ -29,7 +29,7 @@
   <meta charset="UTF-8">
   <title>{{ pageTitle }}</title>
   {% if theme.stylesheets !== undefined && theme.stylesheets.length > 0 %}
-    {# stylesheet list from config.yml #}
+    {# stylesheet list from _config.yml #}
     {% for url in theme.stylesheets %}
       <link rel="stylesheet" href="{{ url }}">
     {% endfor %}
