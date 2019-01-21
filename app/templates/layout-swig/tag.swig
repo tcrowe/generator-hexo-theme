@@ -16,6 +16,6 @@
   </div>
 
   <div id="paginator">
-    {% paginator() %}
+    {{ paginator() }}
   </div>
 {% endblock %}

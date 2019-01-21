@@ -3,6 +3,6 @@
 {% block body %}
   {% include 'includes/recent-posts.swig' %}
   <div id="paginator">
-    {% paginator() %}
+    {{ paginator() }}
   </div>
 {% endblock %}
