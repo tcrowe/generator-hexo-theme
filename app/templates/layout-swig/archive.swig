@@ -66,7 +66,7 @@
       </div>
     {% endfor %}
     <div id="paginator">
-      {% paginator() %}
+      {{ paginator() }}
     </div>
   {% endif %}
 
