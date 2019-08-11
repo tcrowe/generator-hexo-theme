@@ -34,15 +34,14 @@
     "swig"
   ],
   "dependencies": {
-    "livescript": "^1.6.0",
-    "yeoman-generator": "^3.1.1"
+    "yeoman-generator": "^4.0.1"
   },
   "devDependencies": {
-    "eslint": "^5.9.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-prettier": "^3.0.0",
-    "mocha": "^5.2.0",
-    "prettier": "^1.15.2",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "mocha": "^6.2.0",
+    "prettier": "^1.18.2",
     "should": "^13.2.3",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
@@ -51,8 +50,6 @@
     "yo": ">=2.0.0"
   },
   "scripts": {
-    "dev": "NODE_ENV=development lsc -c -w -b -m linked -o app src/index.ls",
-    "dev-test": "NODE_ENV=test mocha --watch || true",
     "test": "NODE_ENV=test mocha"
   }
 }
