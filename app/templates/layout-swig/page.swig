@@ -7,6 +7,6 @@
   </article>
 
   <div id="paginator">
-    {% paginator() %}
+    {{ paginator() }}
   </div>
 {% endblock %}
